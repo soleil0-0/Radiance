@@ -4,6 +4,7 @@ RUN set -ex; \
     apt-get install -y \
         build-essential \
         automake \
+        git \
         cmake \
         default-libmysqlclient-dev \
         libboost-all-dev \

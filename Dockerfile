@@ -4,6 +4,7 @@ RUN set -ex; \
     apt-get install -y \
         build-essential \
         automake \
+        git \
         cmake \
         default-libmysqlclient-dev \
         libboost-all-dev \
@@ -32,4 +33,6 @@ RUN set -ex; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 WORKDIR /app
 COPY --from=builder /build/src/radiance /app/radiance
-CMD ["/app/radiance"]
+COPY ./util.sh /app/util.sh
+EXPOSE 34000
+CMD ["/app/util.sh"]
